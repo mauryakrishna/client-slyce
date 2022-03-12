@@ -1,6 +1,18 @@
-.container {
-  border: 1px solid blue;
+
+.container span {
+  padding: 5px;
 }
+.container div {
+  border: 1px solid gray;
+}
+.container div span:nth-child(1) {
+  display: inline-block;
+  text-align: left;
+}
+.container .row {
+  width: 100%;
+}
+
 .stakeholder-involvement {
   text-transform: capitalize;
 }
