@@ -3,6 +3,7 @@ import './App.css';
 
 import Stakeholder from './Stakeholder/Stakeholder';
 import Transaction from './Transaction';
+import fetchData from "./fetchData";
 
 function App() {
   const [transactionInfo, setTransactionInfo] = useState({
@@ -18,25 +19,21 @@ function App() {
 
   useEffect(() => {
     async function getTransactionInfo() {
-      const transactionsResp = await fetch(`http://localhost:4000/users/transactions/100`)
-      const transaction = await transactionsResp.json()
+      const transaction = await fetchData(`/users/transactions/100`)
       setTransactionInfo(getUpdatedData(transactionInfo, { transaction }))
 
-      fetch(`http://localhost:4000/users/${transaction.buyerId}`)
-        .then(response => response.json())
+      fetchData(`/users/${transaction.buyerId}`)
         .then((result) => {
           setTransactionInfo(getUpdatedData(transactionInfo, { buyer: result }))
         })
       
-      fetch(`http://localhost:4000/users/${transaction.sellerId}`)
-        .then(response => response.json())
+      fetchData(`/users/${transaction.sellerId}`)
         .then((result) => {
           setTransactionInfo(getUpdatedData(transactionInfo, { seller: result }))
         })
       
       //get transaction related documents
-      fetch(`http://localhost:4000/documents/${transaction.id}`)
-        .then(response => response.json())
+      fetchData(`/documents/${transaction.id}`)
         .then(result => {
           setTransactionInfo(getUpdatedData(transactionInfo, { documents: result }))
         })
