@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import './App.css';
 
 import Stakeholder from './Stakeholder/Stakeholder';
-import Transaction from './Transaction';
+import Transaction from './Transaction/Transaction';
 import fetchData from "./fetchData";
 
 function App() {

@@ -1,0 +1,9 @@
+
+.transaction-container .row {
+  width: 100%;
+}
+
+.transaction-container div {
+  border: 1px solid gray;
+  padding: 5px;
+}
