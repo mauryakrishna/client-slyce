@@ -43,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Transaction Status</h1>
       <div>
         <Stakeholder 
           stakeholderData={transactionInfo.buyer} 
